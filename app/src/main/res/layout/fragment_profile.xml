@@ -3,15 +3,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+    android:background="@color/black"
+    tools:context="fragment.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- Judul Profil -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profil"
         android:textSize="25sp"
-        android:layout_centerInParent="true"
-        />
+        android:textColor="@android:color/white"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Gambar Profil -->
+    <ImageView
+        android:id="@+id/imageViewProfile"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_launcher_background"
+        android:scaleType="centerCrop"
+        android:layout_below="@id/textViewTitle"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Nama Pengguna -->
+    <TextView
+        android:id="@+id/textViewUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama Pengguna"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:layout_below="@id/imageViewProfile"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Informasi Pengguna -->
+    <TextView
+        android:id="@+id/textViewUserInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Informasi Pengguna"
+        android:textSize="14sp"
+        android:textColor="@android:color/white"
+        android:layout_below="@id/textViewUsername"
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Tombol Edit Profil -->
+    <Button
+        android:id="@+id/buttonEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Profil"
+        android:textColor="@android:color/white"
+        android:layout_below="@id/textViewUserInfo"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Tombol Logout -->
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:textColor="@android:color/white"
+        android:layout_below="@id/buttonEditProfile"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
