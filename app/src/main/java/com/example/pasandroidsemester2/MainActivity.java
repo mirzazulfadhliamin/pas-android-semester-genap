@@ -4,7 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.BroadcastReceiver;
+import android.content.IntentFilter;
 import android.graphics.PorterDuff;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,10 +23,10 @@ import fragment.ProfileFragment;
 import fragment.SearchFragment;
 
 public class MainActivity extends AppCompatActivity {
-private ActivityMainBinding binding;
+    private ActivityMainBinding binding;
 
-BottomNavigationView bottomNavigationView;
-
+    BottomNavigationView bottomNavigationView;
+    BroadcastReceiver broadcastReceiver = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,15 +34,15 @@ BottomNavigationView bottomNavigationView;
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        broadcastReceiver = new InternetReceiver();
+        InternetStatus();
         final SwipeRefreshLayout refreshLayout = binding.refreshLayout;
-
-
-
         bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        //fragment
         SearchFragment searchFragment = new SearchFragment();
         ProfileFragment profileFragment = new ProfileFragment();
         HomeFragment homeFragment = new HomeFragment();
-
 
         getSupportFragmentManager()
                 .beginTransaction()
@@ -60,19 +63,10 @@ BottomNavigationView bottomNavigationView;
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                // Menghapus pemilihan sebelumnya (mengatur warna ikon ke default)
-                Menu menu = bottomNavigationView.getMenu();
-                for (int i = 0; i < menu.size(); i++) {
-                    MenuItem menuItem = menu.getItem(i);
-                    menuItem.getIcon().setColorFilter(null);
-                }
-
-                // Mengatur warna ikon yang dipilih
-                item.getIcon().setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_IN);
-
+            public boolean onNavigationItemSelected( MenuItem item) {
                 // Melakukan transaksi fragment sesuai item yang dipilih
                 if (item.getItemId() == R.id.homefragment) {
+
                     getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.containerFramelayout, homeFragment)
@@ -100,7 +94,21 @@ BottomNavigationView bottomNavigationView;
         ApiService service = ApiClient.getRetrofitInstance().create(ApiService.class);
 
     }
-        public void toast(String text) {
-            Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
-        }
+    public void toast(String text) {
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+    }
+
+    public void InternetStatus(){
+        registerReceiver(broadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(broadcastReceiver);
+    }
+
+
 }
+

@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
 <item android:id="@+id/homefragment"
     android:icon="@drawable/baseline_home_24"
-    android:title="@string/empty"
+    android:title="Home"
     />
 
     <item android:id="@+id/searchfragment"
         android:icon="@drawable/baseline_search_24"
-        android:title="@string/empty"
+        android:title="Search"
         />
     <item android:id="@+id/profilefragment"
         android:icon="@drawable/baseline_person_24"
-        android:title="@string/empty"
+        android:title="Profile"
         />
         <!--android:title="Profile"-->
-
-
 </menu>
