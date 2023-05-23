@@ -2,6 +2,7 @@ package com.example.pasandroidsemester2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -25,6 +26,7 @@ BottomNavigationView bottomNavigationView;
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        final SwipeRefreshLayout refreshLayout = binding.refreshLayout;
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         SearchFragment searchFragment = new SearchFragment();
@@ -34,8 +36,16 @@ BottomNavigationView bottomNavigationView;
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.containerFramelayout, homeFragment, HomeFragment.class.getSimpleName())
+                .replace(R.id.containerFramelayout, homeFragment, HomeFragment.class.getSimpleName())
                 .commit();
+
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                //ToDo
+                //tambahin buat refresh rek biar kalo di swipe ke atas animenya ganti
+            }
+        });
 
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {

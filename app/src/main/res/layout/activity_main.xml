@@ -9,6 +9,11 @@
     android:layout_margin="0dp"
     android:backgroundTint="@color/white"
     tools:context=".MainActivity">
+
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+   android:id="@+id/refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
    
    <androidx.fragment.app.FragmentContainerView
        android:layout_width="match_parent"
@@ -32,5 +37,5 @@
        android:layout_height="match_parent"
        tools:listitem="@layout/text_row_item"
        app:spanCount="2"/>
-
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </RelativeLayout>
