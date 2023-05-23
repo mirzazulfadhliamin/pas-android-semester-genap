@@ -11,4 +11,5 @@
     <color name="white_80_opacity">#4DFFFFFF</color>
     <color name="red_700">#e21221</color>
     <color name="yellow_500">#FFEB3B</color>
+    <color name="backgorund_menu">#130F26</color>
 </resources>

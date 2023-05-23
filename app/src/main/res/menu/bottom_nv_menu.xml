@@ -4,17 +4,19 @@
 
 
 <item android:id="@+id/homefragment"
-    android:title="Home"
     android:icon="@drawable/baseline_home_24"
+    android:title="@string/empty"
     />
 
     <item android:id="@+id/searchfragment"
-        android:title="Notification"
         android:icon="@drawable/baseline_search_24"
+        android:title="@string/empty"
         />
     <item android:id="@+id/profilefragment"
-        android:title="Profile"
-        android:icon="@drawable/baseline_notifications_none_24"
+        android:icon="@drawable/baseline_person_24"
+        android:title="@string/empty"
         />
+        <!--android:title="Profile"-->
+
 
 </menu>

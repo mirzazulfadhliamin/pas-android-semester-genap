@@ -4,8 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.pasandroidsemester2.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -20,6 +24,7 @@ private ActivityMainBinding binding;
 
 BottomNavigationView bottomNavigationView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +32,8 @@ BottomNavigationView bottomNavigationView;
         setContentView(binding.getRoot());
 
         final SwipeRefreshLayout refreshLayout = binding.refreshLayout;
+
+
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         SearchFragment searchFragment = new SearchFragment();
@@ -36,7 +43,7 @@ BottomNavigationView bottomNavigationView;
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.containerFramelayout, homeFragment, HomeFragment.class.getSimpleName())
+                .add(R.id.containerFramelayout, homeFragment, HomeFragment.class.getSimpleName())
                 .commit();
 
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -44,6 +51,9 @@ BottomNavigationView bottomNavigationView;
             public void onRefresh() {
                 //ToDo
                 //tambahin buat refresh rek biar kalo di swipe ke atas animenya ganti
+                toast("refresh");
+
+                refreshLayout.setRefreshing(false);
             }
         });
 
@@ -51,12 +61,23 @@ BottomNavigationView bottomNavigationView;
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (item.getItemId() == R.id.homefragment){
+                // Menghapus pemilihan sebelumnya (mengatur warna ikon ke default)
+                Menu menu = bottomNavigationView.getMenu();
+                for (int i = 0; i < menu.size(); i++) {
+                    MenuItem menuItem = menu.getItem(i);
+                    menuItem.getIcon().setColorFilter(null);
+                }
+
+                // Mengatur warna ikon yang dipilih
+                item.getIcon().setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_IN);
+
+                // Melakukan transaksi fragment sesuai item yang dipilih
+                if (item.getItemId() == R.id.homefragment) {
                     getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.containerFramelayout, homeFragment)
                             .commit();
-                }else if(item.getItemId() == R.id.searchfragment){
+                } else if (item.getItemId() == R.id.searchfragment) {
                     getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.containerFramelayout, searchFragment)
@@ -66,11 +87,11 @@ BottomNavigationView bottomNavigationView;
                             .beginTransaction()
                             .replace(R.id.containerFramelayout, profileFragment)
                             .commit();
-
                 }
-                return false;
+                return true;
             }
         });
+
 
 
     }
@@ -79,4 +100,7 @@ BottomNavigationView bottomNavigationView;
         ApiService service = ApiClient.getRetrofitInstance().create(ApiService.class);
 
     }
+        public void toast(String text) {
+            Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+        }
 }
