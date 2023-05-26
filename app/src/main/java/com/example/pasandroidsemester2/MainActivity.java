@@ -2,6 +2,8 @@ package com.example.pasandroidsemester2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.BroadcastReceiver;
@@ -11,6 +13,7 @@ import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +24,8 @@ import com.google.android.material.navigation.NavigationBarView;
 import fragment.HomeFragment;
 import fragment.ProfileFragment;
 import fragment.SearchFragment;
+
+
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
@@ -34,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+/*        binding.rv_anime.setLayoutManager(new GridLayoutManager(this,2));*/
+
         broadcastReceiver = new InternetReceiver();
         InternetStatus();
         final SwipeRefreshLayout refreshLayout = binding.refreshLayout;
@@ -44,26 +51,27 @@ public class MainActivity extends AppCompatActivity {
         ProfileFragment profileFragment = new ProfileFragment();
         HomeFragment homeFragment = new HomeFragment();
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.containerFramelayout, homeFragment, HomeFragment.class.getSimpleName())
-                .commit();
 
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                //ToDo
-                //tambahin buat refresh rek biar kalo di swipe ke atas animenya ganti
+                getAnimeList();
                 toast("refresh");
 
                 refreshLayout.setRefreshing(false);
             }
         });
 
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.containerFramelayout, homeFragment, HomeFragment.class.getSimpleName())
+                .commit();
+
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected( MenuItem item) {
+
                 // Melakukan transaksi fragment sesuai item yang dipilih
                 if (item.getItemId() == R.id.homefragment) {
 
@@ -72,11 +80,13 @@ public class MainActivity extends AppCompatActivity {
                             .replace(R.id.containerFramelayout, homeFragment)
                             .commit();
                 } else if (item.getItemId() == R.id.searchfragment) {
+
                     getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.containerFramelayout, searchFragment)
                             .commit();
                 } else if (item.getItemId() == R.id.profilefragment) {
+
                     getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.containerFramelayout, profileFragment)

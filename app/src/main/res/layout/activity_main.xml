@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="0dp"
@@ -9,8 +10,6 @@
     android:backgroundTint="@color/white"
     tools:context=".MainActivity"
     >
-
-
 
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
    android:id="@+id/refresh_layout"
@@ -32,10 +31,12 @@
        android:layout_width="match_parent"
        android:layout_height="70dp"
        app:menu="@menu/bottom_nv_menu"
-       app:itemIconSize="30dp"
+       app:itemIconSize="20dp"
        android:background="@color/backgorund_nv"
-       app:itemIconTint="@color/white"
-       app:itemTextColor="@color/white"
+       app:itemIconTint="@drawable/icon_selector"
+       app:itemTextColor="@drawable/icon_selector"
        android:layout_alignParentBottom="true"
+
+
        />
 </RelativeLayout>

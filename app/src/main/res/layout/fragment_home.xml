@@ -10,7 +10,7 @@
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_movie"
+        android:id="@+id/rv_anime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:listitem="@layout/text_row_item"
@@ -18,14 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-<!--    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:id="@+id/nv_bg"
-        android:background="@drawable/navbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />-->
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

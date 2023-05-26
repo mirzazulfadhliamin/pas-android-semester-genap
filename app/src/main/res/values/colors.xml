@@ -12,9 +12,12 @@
     <color name="white_80_opacity">#4DFFFFFF</color>
     <color name="red_700">#e21221</color>
     <color name="yellow_500">#FFEB3B</color>
+    <color name="holo_yellow_light">#FFFF00</color>
     <color name="backgorund_menu">#130F26</color>
     <color name="backgorund_nv">#130B2B</color>
     <color name="empty">#00FFFFFF</color>
+    <color name="green_6bf248">#6bf248</color>
+    <color name="gray_500">#9E9E9E</color>
 
     <color name="home">#1194AA</color>
     <color name="like">#C9379D</color>
@@ -24,4 +27,13 @@
     <color name="like20">#33C9379D</color>
     <color name="notification_20">#335B37B7</color>
     <color name="profile_20">#335B37B7</color>
+
+    <color name="primary_color">#007bff</color>
+    <color name="primary_variant_color">#0056b3</color>
+    <color name="secondary_color">#6c757d</color>
+    <color name="secondary_variant_color">#495057</color>
+    <color name="background_color">#f8f9fa</color>
+    <color name="text_primary_color">#212529</color>
+    <color name="text_secondary_color">#6c757d</color>
+
 </resources>

@@ -2,6 +2,14 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.PASAndroidSemester2" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryVariant">@color/primary_variant_color</item>
+        <item name="colorSecondary">@color/secondary_color</item>
+        <item name="colorSecondaryVariant">@color/secondary_variant_color</item>
+        <item name="android:windowBackground">@color/background_color</item>
+        <item name="android:textColorPrimary">@color/text_primary_color</item>
+        <item name="android:textColorSecondary">@color/text_secondary_color</item>
+        <item name="android:editTextColor">@color/white</item>
+
     </style>
 </resources>
