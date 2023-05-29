@@ -3,18 +3,15 @@ package fragment;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.renderscript.ScriptGroup;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.pasandroidsemester2.Login;
+import com.example.pasandroidsemester2.LoginActivity;
 import com.example.pasandroidsemester2.R;
 import com.example.pasandroidsemester2.databinding.ActivityMainBinding;
 
@@ -35,7 +32,7 @@ private ActivityMainBinding binding;
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(requireContext(), Login.class));
+                startActivity(new Intent(requireContext(), LoginActivity.class));
                 Toast.makeText(getActivity(), "Button Profile clicked!", Toast.LENGTH_SHORT).show();
             }
         });
