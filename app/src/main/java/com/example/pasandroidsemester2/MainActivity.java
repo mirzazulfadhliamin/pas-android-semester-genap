@@ -1,29 +1,22 @@
 package com.example.pasandroidsemester2;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.BroadcastReceiver;
 import android.content.IntentFilter;
-import android.graphics.PorterDuff;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pasandroidsemester2.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-import fragment.HomeFragment;
-import fragment.ProfileFragment;
-import fragment.SearchFragment;
+import com.example.pasandroidsemester2.fragment.MainHomeFragment;
+import com.example.pasandroidsemester2.fragment.MainProfileFragment;
+import com.example.pasandroidsemester2.fragment.MainSearchFragment;
 
 
 
@@ -47,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         //fragment
-        SearchFragment searchFragment = new SearchFragment();
-        ProfileFragment profileFragment = new ProfileFragment();
-        HomeFragment homeFragment = new HomeFragment();
+        MainSearchFragment mainSearchFragment = new MainSearchFragment();
+        MainProfileFragment mainProfileFragment = new MainProfileFragment();
+        MainHomeFragment mainHomeFragment = new MainHomeFragment();
 
 
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -64,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.containerFramelayout, homeFragment, HomeFragment.class.getSimpleName())
+                .add(R.id.containerFramelayout, mainHomeFragment, MainHomeFragment.class.getSimpleName())
                 .commit();
 
 
@@ -77,19 +70,19 @@ public class MainActivity extends AppCompatActivity {
 
                     getSupportFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.containerFramelayout, homeFragment)
+                            .replace(R.id.containerFramelayout, mainHomeFragment)
                             .commit();
                 } else if (item.getItemId() == R.id.searchfragment) {
 
                     getSupportFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.containerFramelayout, searchFragment)
+                            .replace(R.id.containerFramelayout, mainSearchFragment)
                             .commit();
                 } else if (item.getItemId() == R.id.profilefragment) {
 
                     getSupportFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.containerFramelayout, profileFragment)
+                            .replace(R.id.containerFramelayout, mainProfileFragment)
                             .commit();
                 }
                 return true;

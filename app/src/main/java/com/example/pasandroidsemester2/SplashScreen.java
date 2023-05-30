@@ -9,25 +9,37 @@ import android.view.View;
 
 public class SplashScreen extends AppCompatActivity {
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_splash_screen);
+    private Preferences pref;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        /*
+        * TODO: GANTI SEMUA STRING DENGAN VALUE DARI strings.xml
+        */
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splash_screen);
 
-            View decorView = getWindow().getDecorView();
-            decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);// fullscren
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);// fullscren
 
-            if (getSupportActionBar() != null) { //hilangin actionbar
-                getSupportActionBar().hide();
-            }
+        if (getSupportActionBar() != null) { //hilangin actionbar
+            getSupportActionBar().hide();
+        }
 
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    startActivity(new Intent(SplashScreen.this, MainActivity.class));
-                    finish();
-                }
+        pref = new Preferences(this);
+
+        if (pref.getIsLoggedIn()) {
+            new Handler().postDelayed(() -> {
+                startActivity(new Intent(SplashScreen.this, MainActivity.class));
+                finish();
+            }, 2000);
+        } else {
+            new Handler().postDelayed(() -> {
+                startActivity(new Intent(SplashScreen.this, LoginActivity.class));
+                finish();
             }, 2000);
         }
+
+
     }
+}
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgorund_menu"
-    tools:context="fragment.SearchFragment">
+    tools:context=".fragment.MainSearchFragment">
 
     <LinearLayout
         android:id="@+id/searchLayout"

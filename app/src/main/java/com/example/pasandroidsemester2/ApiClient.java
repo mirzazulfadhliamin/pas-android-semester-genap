@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
     public static Retrofit retrofit;
-    public static final String BaseURL ="ga tau";
+    public static final String BaseURL ="https://graphql.anilist.co";
 
     public static Retrofit getRetrofitInstance(){
         if(retrofit == null){
