@@ -7,9 +7,12 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pasandroidsemester2.ApiClient;
@@ -34,6 +37,15 @@ public class LoginAuthFragment extends Fragment {
 
         binding = FragmentLoginAuthBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
+
+        // Perform btn_login's action when the done key is entered
+        binding.tfAuth.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                binding.btnLogin.performClick();
+                return true;
+            }
+            return false;
+        });
 
         binding.btnToken.setOnClickListener(v -> {
             Intent browserIntent = new Intent(

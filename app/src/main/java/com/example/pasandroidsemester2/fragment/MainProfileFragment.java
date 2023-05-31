@@ -55,7 +55,7 @@ public class MainProfileFragment extends Fragment {
         call.enqueue(new Callback<ResponseGetProfile>() {
             @Override
             public void onResponse(Call<ResponseGetProfile> call, Response<ResponseGetProfile> response) {
-                
+
                 ErrorResponseChecker errorChecker = new ErrorResponseChecker(response);
                 if (errorChecker.isBodyNull()) {
                     int errorCode = errorChecker.getCodeError();
@@ -86,7 +86,7 @@ public class MainProfileFragment extends Fragment {
                 Picasso.get()
                         .load(bannerImage)
                         .placeholder(R.color.black)
-                        .error(R.drawable.ic_launcher_background)
+                        .error(R.color.gray_500)
                         .fit()
                         .centerCrop()
                         .into(binding.ivBanner);

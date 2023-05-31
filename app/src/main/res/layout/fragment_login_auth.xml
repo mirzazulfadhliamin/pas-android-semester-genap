@@ -27,7 +27,8 @@
             android:ellipsize="end"
             android:textColor="@color/black"
             android:textColorHint="@color/gray_500"
-            android:hint="Authentication token" />
+            android:hint="Authentication token"
+            android:imeOptions="actionDone"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
