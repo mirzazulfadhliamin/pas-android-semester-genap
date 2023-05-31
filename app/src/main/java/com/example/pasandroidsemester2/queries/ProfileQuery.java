@@ -13,6 +13,7 @@ public class ProfileQuery {
             "        medium\n" +
             "      }\n" +
             "      bannerImage\n" +
+            "      about\n" +
             "    }\n" +
             "  }";
 }

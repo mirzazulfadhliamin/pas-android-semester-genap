@@ -16,6 +16,9 @@ public class Viewer{
 	@SerializedName("avatar")
 	private Avatar avatar;
 
+	@SerializedName("about")
+	private String about;
+
 	public String getBannerImage(){
 		return bannerImage;
 	}
@@ -30,5 +33,9 @@ public class Viewer{
 
 	public Avatar getAvatar(){
 		return avatar;
+	}
+
+	public String getAbout() {
+		return about;
 	}
 }

@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.pasandroidsemester2.ApiClient;
 import com.example.pasandroidsemester2.ApiService;
+import com.example.pasandroidsemester2.ErrorResponseChecker;
 import com.example.pasandroidsemester2.R;
 import com.example.pasandroidsemester2.databinding.FragmentLoginAuthBinding;
 import com.example.pasandroidsemester2.queries.ProfileQuery;
@@ -50,9 +51,11 @@ public class LoginAuthFragment extends Fragment {
             call.enqueue(new Callback<ResponseGetProfile>() {
                 @Override
                 public void onResponse(Call<ResponseGetProfile> call, Response<ResponseGetProfile> response) {
+                    ErrorResponseChecker errorChecker = new ErrorResponseChecker<>(response);
 
-                    if (response.code() > 399) {
-                        String error = String.format("ERROR: %d: %s", response.code(), response.message());
+                    if (errorChecker.isBodyNull()) {
+                        int errorCode = errorChecker.getCodeError();
+                        String error = String.format("ERROR: %d: %s", errorCode, response.message());
                         String reminder = "Please make sure you entered the correct authentication token";
                         Log.e("LOGIN-ERROR", error);
                         Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
