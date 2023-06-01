@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
         broadcastReceiver = new InternetReceiver();
         InternetStatus();
-        final SwipeRefreshLayout refreshLayout = binding.refreshLayout;
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         //fragment
@@ -44,20 +43,9 @@ public class MainActivity extends AppCompatActivity {
         MainProfileFragment mainProfileFragment = new MainProfileFragment();
         MainHomeFragment mainHomeFragment = new MainHomeFragment();
 
-
-        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                getAnimeList();
-                toast("refresh");
-
-                refreshLayout.setRefreshing(false);
-            }
-        });
-
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.containerFramelayout, mainHomeFragment, MainHomeFragment.class.getSimpleName())
+                .add(R.id.container_frame_layout, mainHomeFragment, MainHomeFragment.class.getSimpleName())
                 .commit();
 
 
@@ -70,19 +58,19 @@ public class MainActivity extends AppCompatActivity {
 
                     getSupportFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.containerFramelayout, mainHomeFragment)
+                            .replace(R.id.container_frame_layout, mainHomeFragment)
                             .commit();
                 } else if (item.getItemId() == R.id.searchfragment) {
 
                     getSupportFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.containerFramelayout, mainSearchFragment)
+                            .replace(R.id.container_frame_layout, mainSearchFragment)
                             .commit();
                 } else if (item.getItemId() == R.id.profilefragment) {
 
                     getSupportFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.containerFramelayout, mainProfileFragment)
+                            .replace(R.id.container_frame_layout, mainProfileFragment)
                             .commit();
                 }
                 return true;

@@ -51,7 +51,6 @@ public class MainProfileFragment extends Fragment {
         ProfileQuery profileQuery = new ProfileQuery();
         ApiService apiService = ApiClient.getRetrofitInstance().create(ApiService.class);
         Call<ResponseGetProfile> call = apiService.getProfile(pref.getAuthToken(), profileQuery);
-        mainBinding.refreshLayout.setRefreshing(true);
         call.enqueue(new Callback<ResponseGetProfile>() {
             @Override
             public void onResponse(Call<ResponseGetProfile> call, Response<ResponseGetProfile> response) {
