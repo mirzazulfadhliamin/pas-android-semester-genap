@@ -1,7 +1,6 @@
 package com.example.pasandroidsemester2;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.BroadcastReceiver;
 import android.content.IntentFilter;

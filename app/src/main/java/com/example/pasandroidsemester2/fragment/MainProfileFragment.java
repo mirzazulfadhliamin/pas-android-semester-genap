@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.pasandroidsemester2.ApiClient;
@@ -44,6 +43,9 @@ public class MainProfileFragment extends Fragment {
         binding = FragmentMainProfileBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
+        // Show loading animation
+        binding.loading.setVisibility(View.VISIBLE);
+
         // For reading/writing data from/in SharedPreferences
         pref = new Preferences(getContext());
 
@@ -54,6 +56,11 @@ public class MainProfileFragment extends Fragment {
         call.enqueue(new Callback<ResponseGetProfile>() {
             @Override
             public void onResponse(Call<ResponseGetProfile> call, Response<ResponseGetProfile> response) {
+                // Remove loading animation
+                if (null == binding) {
+                    return;
+                }
+                binding.loading.setVisibility(View.GONE);
 
                 ErrorResponseChecker errorChecker = new ErrorResponseChecker(response);
                 if (errorChecker.isBodyNull()) {
@@ -117,5 +124,9 @@ public class MainProfileFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
 
 }
