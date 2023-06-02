@@ -4,20 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashScreen">
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SplashScreen"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    tools:context=".SplashScreen"
+    android:background="#130B2B"
+    >
+    <ImageView
+        android:layout_width="1000dp"
+        android:layout_height="1000dp"
+        android:src="@drawable/background_gradients"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_suram"
+        />
 
-
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/logo_sp"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
