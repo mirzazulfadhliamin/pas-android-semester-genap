@@ -21,14 +21,14 @@
             android:id="@+id/tf_auth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:hint="@string/authentication_token"
+            android:imeOptions="actionDone"
+            android:inputType="textEmailAddress"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
-            android:inputType="textEmailAddress"
-            android:ellipsize="end"
             android:textColor="@color/black"
-            android:textColorHint="@color/gray_500"
-            android:hint="Authentication token"
-            android:imeOptions="actionDone"/>
+            android:textColorHint="#8D6E63" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -36,7 +36,7 @@
         android:id="@+id/btn_token"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Get authorization token"
+        android:text="@string/get_authorization_token"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/auth_input_layout"
@@ -47,7 +47,7 @@
        android:layout_width="300dp"
        android:layout_height="wrap_content"
        app:layout_constraintEnd_toEndOf="parent"
-       android:text="LOGIN"
+       android:text="@string/login"
        android:layout_marginTop="10dp"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@id/btn_token"
