@@ -10,6 +10,5 @@
         <item name="android:textColorPrimary">@color/text_primary_color</item>
         <item name="android:textColorSecondary">@color/text_secondary_color</item>
         <item name="android:editTextColor">@color/white</item>
-
     </style>
 </resources>

@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.pasandroidsemester2.databinding.ActivityMainBinding;
+import com.example.pasandroidsemester2.fragment.LibraryFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         MainSearchFragment mainSearchFragment = new MainSearchFragment();
         MainProfileFragment mainProfileFragment = new MainProfileFragment();
         MainHomeFragment mainHomeFragment = new MainHomeFragment();
+        LibraryFragment libraryFragment = new LibraryFragment();
 
         getSupportFragmentManager()
                 .beginTransaction()
@@ -65,6 +67,12 @@ public class MainActivity extends AppCompatActivity {
                             .beginTransaction()
                             .replace(R.id.container_frame_layout, mainSearchFragment)
                             .commit();
+                } else if (item.getItemId() == R.id.libraryfragment) {
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.container_frame_layout, libraryFragment)
+                            .commit();
+
                 } else if (item.getItemId() == R.id.profilefragment) {
 
                     getSupportFragmentManager()
@@ -74,7 +82,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 return true;
             }
-        });
+        }
+
+
+
+        );
 
 
 
