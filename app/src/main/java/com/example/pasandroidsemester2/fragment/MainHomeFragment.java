@@ -13,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.pasandroidsemester2.Anime;
 import com.example.pasandroidsemester2.R;
 import com.google.android.material.tabs.TabLayout;
 
@@ -50,9 +49,9 @@ public class MainHomeFragment extends Fragment {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new Popular();
+                    return new HomePopularFragment();
                 case 1:
-                    return new Anime();
+                    return new HomeAnimeFragment();
                 default:
                     return null;
             }

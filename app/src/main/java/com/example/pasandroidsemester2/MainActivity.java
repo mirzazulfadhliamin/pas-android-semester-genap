@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.pasandroidsemester2.databinding.ActivityMainBinding;
-import com.example.pasandroidsemester2.fragment.LibraryFragment;
+import com.example.pasandroidsemester2.fragment.MainLibraryFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         MainSearchFragment mainSearchFragment = new MainSearchFragment();
         MainProfileFragment mainProfileFragment = new MainProfileFragment();
         MainHomeFragment mainHomeFragment = new MainHomeFragment();
-        LibraryFragment libraryFragment = new LibraryFragment();
+        MainLibraryFragment libraryFragment = new MainLibraryFragment();
 
         getSupportFragmentManager()
                 .beginTransaction()

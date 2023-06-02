@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgorund_menu"
-    tools:context=".fragment.LibraryFragment">
+    tools:context=".fragment.MainLibraryFragment">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

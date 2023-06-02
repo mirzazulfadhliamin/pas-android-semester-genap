@@ -101,7 +101,7 @@
     <ProgressBar
         android:visibility="gone"
         android:id="@+id/loading"
-        android:padding="125dp"
+        android:padding="155dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         style="?android:progressBarStyleLarge"
