@@ -20,11 +20,19 @@ import com.google.android.material.tabs.TabLayoutMediator;
 public class MainHomeFragment extends Fragment {
 
     private FragmentMainHomeBinding binding;
+    private View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentMainHomeBinding.inflate(inflater, container, false);
-        View view = binding.getRoot();
+
+        // Return view early if view isn't null
+        // Returns view with saved state without setSaveEnabled(true)
+        if (view != null) {
+            return view;
+        }
+
+        view = binding.getRoot();
 
         HomeTabAdapter adapter = new HomeTabAdapter(this);
         ViewPager2 viewPager = binding.viewPager;
