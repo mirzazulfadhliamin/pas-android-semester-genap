@@ -7,9 +7,17 @@
     android:background="@color/backgorund_menu"
     tools:context=".fragment.MainProfileFragment">
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:id="@id/content"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
 
-    <ImageView
+           <ImageView
         android:id="@+id/iv_banner"
         android:layout_width="match_parent"
         android:layout_height="160dp"
@@ -98,15 +106,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="16dp" />
 
-    <ProgressBar
-        android:visibility="gone"
-        android:id="@+id/loading"
-        android:padding="155dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        style="?android:progressBarStyleLarge"
-        android:background="@color/backgorund_menu"
-        android:elevation="10dp"
-        />
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

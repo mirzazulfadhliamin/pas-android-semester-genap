@@ -44,11 +44,34 @@ public class MainProfileFragment extends Fragment {
         View view = binding.getRoot();
 
         // Show loading animation
-        binding.loading.setVisibility(View.VISIBLE);
+        binding.content.setVisibility(View.INVISIBLE);
+        binding.refresh.setRefreshing(true);
 
         // For reading/writing data from/in SharedPreferences
         pref = new Preferences(getContext());
+        setContent();
 
+        binding.refresh.setOnRefreshListener(() -> {
+            setContent();
+        });
+
+        binding.btnEdit.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://anilist.co/settings/"));
+            startActivity(intent);
+        });
+
+        binding.btnLogout.setOnClickListener(view1 -> {
+            pref.setIsLoggedIn(false);
+            pref.setAuthToken("");
+            startActivity(new Intent(requireContext(), LoginActivity.class));
+            Toast.makeText(getActivity(), "Logged out from AniList account", Toast.LENGTH_SHORT).show();
+            getActivity().finish();
+        });
+
+        return view;
+    }
+
+    private void setContent() {
         // Load profile data to fragment
         ProfileQuery profileQuery = new ProfileQuery();
         ApiService apiService = ApiClient.getRetrofitInstance().create(ApiService.class);
@@ -60,7 +83,8 @@ public class MainProfileFragment extends Fragment {
                 if (null == binding) {
                     return;
                 }
-                binding.loading.setVisibility(View.GONE);
+                binding.refresh.setRefreshing(false);
+                binding.content.setVisibility(View.VISIBLE);
 
                 ErrorResponseChecker errorChecker = new ErrorResponseChecker(response);
                 if (errorChecker.isBodyNull()) {
@@ -107,26 +131,5 @@ public class MainProfileFragment extends Fragment {
                 Toast.makeText(getContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
             }
         });
-
-        binding.btnEdit.setOnClickListener(v -> {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://anilist.co/settings/"));
-            startActivity(intent);
-        });
-
-        binding.btnLogout.setOnClickListener(view1 -> {
-            pref.setIsLoggedIn(false);
-            pref.setAuthToken("");
-            startActivity(new Intent(requireContext(), LoginActivity.class));
-            Toast.makeText(getActivity(), "Logged out from AniList account", Toast.LENGTH_SHORT).show();
-            getActivity().finish();
-        });
-
-        return view;
     }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-    }
-
 }
