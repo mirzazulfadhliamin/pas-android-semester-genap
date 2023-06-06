@@ -1,5 +1,6 @@
 package com.example.pasandroidsemester2.fragment;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -22,7 +23,9 @@ public class HomeAnimeFragment extends Fragment {
 
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        //kalo ada this.  pakai aja  getActivity()
+        //pakai library Fast Android Networking Library
     }
 }
