@@ -109,14 +109,14 @@ public class MainProfileFragment extends Fragment {
                 // Set widgets' content to the retrieved data
                 Picasso.get()
                         .load(avatar)
-                        .placeholder(R.color.black)
-                        .error(R.drawable.ic_launcher_background)
+                        .placeholder(R.color.backgorund_nv)
+                        .error(R.color.backgorund_nv)
                         .into(binding.ivAvatar);
 
                 Picasso.get()
                         .load(bannerImage)
-                        .placeholder(R.color.black)
-                        .error(R.color.gray_500)
+                        .placeholder(R.color.backgorund_nv)
+                        .error(R.color.black_suram)
                         .fit()
                         .centerCrop()
                         .into(binding.ivBanner);
