@@ -1,7 +1,9 @@
 package com.example.pasandroidsemester2;
 
+import com.example.pasandroidsemester2.queries.DetailQuery;
 import com.example.pasandroidsemester2.queries.ProfileQuery;
 import com.example.pasandroidsemester2.queries.SearchQuery;
+import com.example.pasandroidsemester2.responses.detail.ResponseGetDetail;
 import com.example.pasandroidsemester2.responses.profile.ResponseGetProfile;
 import com.example.pasandroidsemester2.responses.search.ResponseGetSearch;
 
@@ -26,4 +28,11 @@ public interface ApiService {
     })
     @POST("/")
     Call<ResponseGetSearch> getSearch(@Header("Authorization") String authToken, @Body SearchQuery query);
+
+    @Headers({
+            "Content-Type: application/json",
+            "Accept: application/json"
+    })
+    @POST("/")
+    Call<ResponseGetDetail> getDetail(@Header("Authorization") String authToken, @Body DetailQuery query);
 }

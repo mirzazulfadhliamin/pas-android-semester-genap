@@ -1,5 +1,7 @@
 package com.example.pasandroidsemester2.rv_adapters;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pasandroidsemester2.DetailActivity;
 import com.example.pasandroidsemester2.R;
 import com.example.pasandroidsemester2.databinding.SearchRowItemBinding;
 import com.example.pasandroidsemester2.responses.search.SearchMediaItem;
@@ -34,14 +37,22 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String title = localDataSet.get(position).getTitle().getRomaji();
+        String posterUrl = localDataSet.get(position).getCoverImage().getLarge();
+        int mediaId = localDataSet.get(position).getId();
+
         holder.binding.tvTitle.setText(title);
 
-        String posterUrl = localDataSet.get(position).getCoverImage().getLarge();
         Picasso.get()
                 .load(posterUrl)
                 .placeholder(R.color.backgorund_nv)
                 .error(R.color.black_suram)
                 .into(holder.binding.ivPoster);
+
+        holder.binding.searchCard.setOnClickListener(v -> {
+            Intent intent = new Intent(holder.itemView.getContext(), DetailActivity.class);
+            intent.putExtra("media_id", mediaId);
+            holder.itemView.getContext().startActivity(intent);
+        });
     }
 
     @Override

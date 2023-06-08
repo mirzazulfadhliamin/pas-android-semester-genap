@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 /*        binding.rv_anime.setLayoutManager(new GridLayoutManager(this,2));*/
 
         broadcastReceiver = new InternetReceiver();
-        InternetStatus();
+        internetStatus();
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         //fragment
@@ -100,9 +100,8 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
     }
 
-    public void InternetStatus(){
+    public void internetStatus(){
         registerReceiver(broadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
-
     }
 
     @Override
@@ -111,6 +110,11 @@ public class MainActivity extends AppCompatActivity {
         unregisterReceiver(broadcastReceiver);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        internetStatus();
+    }
 
 }
 

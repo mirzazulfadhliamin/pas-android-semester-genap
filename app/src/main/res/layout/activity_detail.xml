@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,11 +7,15 @@
     tools:context=".DetailActivity"
     android:background="@color/backgorund_menu">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <!-- Background Image -->
     <ImageView
-        android:id="@+id/detailbackground"
+        android:id="@+id/iv_banner"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="180dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,55 +24,47 @@
 
     <!-- Poster Image -->
     <ImageView
-        android:id="@+id/detailPosterImage"
-        android:layout_width="150dp"
-        android:layout_height="200dp"
+        android:id="@+id/iv_poster"
+        android:layout_width="175dp"
+        android:layout_height="230dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/detailbackground"
+        app:layout_constraintTop_toBottomOf="@+id/iv_banner"
+        android:layout_marginTop="-60dp"
+        android:layout_marginStart="70dp"
         tools:src="@tools:sample/avatars"
         android:scaleType="centerCrop"
         />
 
     <!-- Title Text -->
     <TextView
-        android:id="@+id/detailTitleText"
+        android:id="@+id/iv_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Title"
+        android:text=""
         android:textColor="@android:color/white"
         android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@+id/detailPosterImage"
+        app:layout_constraintTop_toBottomOf="@+id/iv_poster"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Description Text -->
     <TextView
-        android:id="@+id/detailDescriptionText"
+        android:id="@+id/iv_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Description"
+        android:text=""
         android:textColor="@android:color/white"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@+id/detailTitleText"
+        app:layout_constraintTop_toBottomOf="@+id/iv_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Play Button -->
-    <Button
-        android:id="@+id/playButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Play"
-        app:layout_constraintTop_toBottomOf="@+id/detailDescriptionText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
