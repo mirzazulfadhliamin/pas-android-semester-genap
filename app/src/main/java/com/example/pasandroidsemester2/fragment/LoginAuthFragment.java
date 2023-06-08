@@ -16,11 +16,12 @@ import android.widget.Toast;
 import com.example.pasandroidsemester2.ApiClient;
 import com.example.pasandroidsemester2.ApiService;
 import com.example.pasandroidsemester2.ErrorResponseChecker;
+import com.example.pasandroidsemester2.Preferences;
 import com.example.pasandroidsemester2.R;
 import com.example.pasandroidsemester2.databinding.FragmentLoginAuthBinding;
 import com.example.pasandroidsemester2.queries.ProfileQuery;
-import com.example.pasandroidsemester2.responses.ResponseGetProfile;
-import com.example.pasandroidsemester2.responses.ProfileViewer;
+import com.example.pasandroidsemester2.responses.profile.ResponseGetProfile;
+import com.example.pasandroidsemester2.responses.profile.ProfileViewer;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -73,6 +74,8 @@ public class LoginAuthFragment extends Fragment {
                         return;
                     }
 
+                    Preferences pref = new Preferences(getContext());
+                    pref.setAuthToken(authToken);
                     ProfileViewer profileViewer = response.body().getData().getViewer();
                     String name = profileViewer.getName();
                     int id = profileViewer.getId();

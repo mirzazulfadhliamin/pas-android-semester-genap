@@ -1,7 +1,9 @@
 package com.example.pasandroidsemester2;
 
 import com.example.pasandroidsemester2.queries.ProfileQuery;
-import com.example.pasandroidsemester2.responses.ResponseGetProfile;
+import com.example.pasandroidsemester2.queries.SearchQuery;
+import com.example.pasandroidsemester2.responses.profile.ResponseGetProfile;
+import com.example.pasandroidsemester2.responses.search.ResponseGetSearch;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -18,4 +20,10 @@ public interface ApiService {
     @POST("/")
     Call<ResponseGetProfile> getProfile(@Header("Authorization") String authToken, @Body ProfileQuery query);
 
+    @Headers({
+            "Content-Type: application/json",
+            "Accept: application/json"
+    })
+    @POST("/")
+    Call<ResponseGetSearch> getSearch(@Header("Authorization") String authToken, @Body SearchQuery query);
 }

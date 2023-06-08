@@ -1,7 +1,6 @@
-package com.example.pasandroidsemester2;
+package com.example.pasandroidsemester2.rv_adapters;
 
 
-import android.content.Intent;
 import android.graphics.Movie;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,11 +10,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.squareup.picasso.Picasso;
+import com.example.pasandroidsemester2.R;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 public class AnimeAdapter extends RecyclerView.Adapter<AnimeAdapter.ViewHolder> {
 

@@ -21,8 +21,8 @@ import com.example.pasandroidsemester2.R;
 import com.example.pasandroidsemester2.databinding.ActivityMainBinding;
 import com.example.pasandroidsemester2.databinding.FragmentMainProfileBinding;
 import com.example.pasandroidsemester2.queries.ProfileQuery;
-import com.example.pasandroidsemester2.responses.ResponseGetProfile;
-import com.example.pasandroidsemester2.responses.ProfileViewer;
+import com.example.pasandroidsemester2.responses.profile.ResponseGetProfile;
+import com.example.pasandroidsemester2.responses.profile.ProfileViewer;
 import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;

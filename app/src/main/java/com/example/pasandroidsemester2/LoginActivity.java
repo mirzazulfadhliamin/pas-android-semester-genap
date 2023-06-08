@@ -3,20 +3,10 @@ package com.example.pasandroidsemester2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.pasandroidsemester2.databinding.ActivityLoginBinding;
 import com.example.pasandroidsemester2.fragment.LoginAuthFragment;
-import com.example.pasandroidsemester2.fragment.LoginConfirmationFragment;
-import com.example.pasandroidsemester2.queries.ProfileQuery;
-import com.example.pasandroidsemester2.responses.ResponseGetProfile;
-import com.squareup.picasso.Picasso;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
