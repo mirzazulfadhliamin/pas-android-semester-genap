@@ -2,12 +2,12 @@ package com.example.pasandroidsemester2.responses;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Data{
+public class ProfileData {
 
 	@SerializedName("Viewer")
-	private Viewer viewer;
+	private ProfileViewer profileViewer;
 
-	public Viewer getViewer(){
-		return viewer;
+	public ProfileViewer getViewer(){
+		return profileViewer;
 	}
 }

@@ -22,7 +22,7 @@ import com.example.pasandroidsemester2.databinding.ActivityMainBinding;
 import com.example.pasandroidsemester2.databinding.FragmentMainProfileBinding;
 import com.example.pasandroidsemester2.queries.ProfileQuery;
 import com.example.pasandroidsemester2.responses.ResponseGetProfile;
-import com.example.pasandroidsemester2.responses.Viewer;
+import com.example.pasandroidsemester2.responses.ProfileViewer;
 import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;
@@ -102,12 +102,12 @@ public class MainProfileFragment extends Fragment {
                 }
 
                 // Get data from Viewer object
-                Viewer viewer = response.body().getData().getViewer();
-                String name = viewer.getName();
-                int id = viewer.getId();
-                String avatar = viewer.getAvatar().getLarge();
-                String bannerImage = viewer.getBannerImage();
-                String bio = viewer.getAbout();
+                ProfileViewer profileViewer = response.body().getData().getViewer();
+                String name = profileViewer.getName();
+                int id = profileViewer.getId();
+                String avatar = profileViewer.getAvatar().getLarge();
+                String bannerImage = profileViewer.getBannerImage();
+                String bio = profileViewer.getAbout();
 
                 // Set widgets' content to the retrieved data
                 Picasso.get()

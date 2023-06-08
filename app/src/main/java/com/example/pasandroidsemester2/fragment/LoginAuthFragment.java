@@ -7,12 +7,10 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pasandroidsemester2.ApiClient;
@@ -22,7 +20,7 @@ import com.example.pasandroidsemester2.R;
 import com.example.pasandroidsemester2.databinding.FragmentLoginAuthBinding;
 import com.example.pasandroidsemester2.queries.ProfileQuery;
 import com.example.pasandroidsemester2.responses.ResponseGetProfile;
-import com.example.pasandroidsemester2.responses.Viewer;
+import com.example.pasandroidsemester2.responses.ProfileViewer;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -75,11 +73,11 @@ public class LoginAuthFragment extends Fragment {
                         return;
                     }
 
-                    Viewer viewer = response.body().getData().getViewer();
-                    String name = viewer.getName();
-                    int id = viewer.getId();
-                    String avatar = viewer.getAvatar().getLarge();
-                    String bannerImage = viewer.getBannerImage();
+                    ProfileViewer profileViewer = response.body().getData().getViewer();
+                    String name = profileViewer.getName();
+                    int id = profileViewer.getId();
+                    String avatar = profileViewer.getAvatar().getLarge();
+                    String bannerImage = profileViewer.getBannerImage();
                     Toast.makeText(getContext(), "Identified user: " + name, Toast.LENGTH_SHORT).show();
                     // Create bundle to pass data to confirmation fragment
                     Bundle bundle = new Bundle();

@@ -1,4 +1,4 @@
-package com.example.pasandroidsemester2.responses;
+package com.example.pasandroidsemester2;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -3,10 +3,10 @@ package com.example.pasandroidsemester2.responses;
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class ErrorsItem{
+public class ProfileErrorsItem {
 
 	@SerializedName("locations")
-	private List<LocationsItem> locations;
+	private List<ProfileLocationsItem> locations;
 
 	@SerializedName("message")
 	private String message;
@@ -14,7 +14,7 @@ public class ErrorsItem{
 	@SerializedName("status")
 	private int status;
 
-	public List<LocationsItem> getLocations(){
+	public List<ProfileLocationsItem> getLocations(){
 		return locations;
 	}
 

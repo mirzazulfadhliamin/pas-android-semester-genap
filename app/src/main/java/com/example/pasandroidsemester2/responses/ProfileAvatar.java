@@ -2,7 +2,7 @@ package com.example.pasandroidsemester2.responses;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Avatar{
+public class ProfileAvatar {
 
 	@SerializedName("large")
 	private String large;

@@ -2,7 +2,7 @@ package com.example.pasandroidsemester2.responses;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Viewer{
+public class ProfileViewer {
 
 	@SerializedName("bannerImage")
 	private String bannerImage;
@@ -14,7 +14,7 @@ public class Viewer{
 	private int id;
 
 	@SerializedName("avatar")
-	private Avatar avatar;
+	private ProfileAvatar profileAvatar;
 
 	@SerializedName("about")
 	private String about;
@@ -31,8 +31,8 @@ public class Viewer{
 		return id;
 	}
 
-	public Avatar getAvatar(){
-		return avatar;
+	public ProfileAvatar getAvatar(){
+		return profileAvatar;
 	}
 
 	public String getAbout() {

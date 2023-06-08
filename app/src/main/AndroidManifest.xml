@@ -19,7 +19,7 @@
             android:name=".OnboardingActivity"
             android:exported="false" />
         <activity
-            android:name=".responses.DetailActivity"
+            android:name=".DetailActivity"
             android:exported="false" />
         <activity
             android:name=".fragment.HomeAnimeFragment"

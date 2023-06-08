@@ -1,22 +1,22 @@
 package com.example.pasandroidsemester2.responses;
 
 import java.util.ArrayList;
-import java.util.List;
+
 import com.google.gson.annotations.SerializedName;
 
 public class ResponseGetProfile{
 
 	@SerializedName("data")
-	private Data data;
+	private ProfileData profileData;
 
 	@SerializedName("errors")
-	private ArrayList<ErrorsItem> errors;
+	private ArrayList<ProfileErrorsItem> errors;
 
-	public Data getData(){
-		return data;
+	public ProfileData getData(){
+		return profileData;
 	}
 
-	public ArrayList<ErrorsItem> getErrors(){
+	public ArrayList<ProfileErrorsItem> getErrors(){
 		return errors;
 	}
 }
