@@ -33,12 +33,15 @@ public class OnboardingActivity extends AppCompatActivity {
         fragmentTransaction.commit();
 
         paperOnboardingFragment.setOnRightOutListener(() -> {
+            preferences.setFalseFirstRun();
             if (preferences.getIsLoggedIn()) {
                 Intent intent = new Intent(OnboardingActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             } else {
                 Intent intent = new Intent(OnboardingActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

@@ -40,10 +40,11 @@ public class Preferences {
 
     public boolean getFirstRun(Context context) {
         boolean isFirstRun = pref.getBoolean(firstRun, true);
-        if (isFirstRun) {
-            editor.putBoolean(firstRun, false);
-            editor.commit();
-        }
         return isFirstRun;
+    }
+
+    public void setFalseFirstRun() {
+        editor.putBoolean(firstRun, false);
+        editor.commit();
     }
 }
