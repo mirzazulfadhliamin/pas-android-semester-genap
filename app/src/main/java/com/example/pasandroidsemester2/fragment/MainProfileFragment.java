@@ -93,7 +93,10 @@ public class MainProfileFragment extends Fragment {
                             "ERROR: %d: %s",
                             errorCode,
                             "Something went wrong while trying to send request to AniList");
-                    Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
+                    // Protection against null context mfw
+                    if (null != getContext()) {
+                        Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
+                    }
                     Log.e("PROFILE-ERROR", error);
                     return;
                 }

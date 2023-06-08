@@ -9,17 +9,22 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.pasandroidsemester2.MainActivity;
+import com.example.pasandroidsemester2.fragment.MainHomeFragment;
 import com.ramotion.paperonboarding.PaperOnboardingFragment;
 import com.ramotion.paperonboarding.PaperOnboardingPage;
 import com.ramotion.paperonboarding.listeners.PaperOnboardingOnRightOutListener;
 import java.util.ArrayList;
 public class OnboardingActivity extends AppCompatActivity {
     private FragmentManager fragmentManager;
+    Preferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding);
+
+        // Get saved data from disk
+        preferences = new Preferences(this);
 
         fragmentManager = getSupportFragmentManager();
         PaperOnboardingFragment paperOnboardingFragment = PaperOnboardingFragment.newInstance(getDataforOnboarding());
@@ -27,10 +32,12 @@ public class OnboardingActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.frame_layout, paperOnboardingFragment);
         fragmentTransaction.commit();
 
-        paperOnboardingFragment.setOnRightOutListener(new PaperOnboardingOnRightOutListener() {
-            @Override
-            public void onRightOut() {
+        paperOnboardingFragment.setOnRightOutListener(() -> {
+            if (preferences.getIsLoggedIn()) {
                 Intent intent = new Intent(OnboardingActivity.this, MainActivity.class);
+                startActivity(intent);
+            } else {
+                Intent intent = new Intent(OnboardingActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
