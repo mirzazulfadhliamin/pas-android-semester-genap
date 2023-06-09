@@ -29,6 +29,5 @@ public class ListQuery {
                 "    }\n" +
                 "  }\n" +
                 "}", id);
-        Log.d("LIST-DEBUG", query);
     }
 }
