@@ -4,11 +4,13 @@ import com.example.pasandroidsemester2.queries.DetailQuery;
 import com.example.pasandroidsemester2.queries.GlobalActivityQuery;
 import com.example.pasandroidsemester2.queries.ListQuery;
 import com.example.pasandroidsemester2.queries.ProfileQuery;
+import com.example.pasandroidsemester2.queries.RecommendationQuery;
 import com.example.pasandroidsemester2.queries.SearchQuery;
 import com.example.pasandroidsemester2.responses.detail.ResponseGetDetail;
 import com.example.pasandroidsemester2.responses.global_activity.ResponseGetGlobalActivity;
 import com.example.pasandroidsemester2.responses.library.ResponseGetList;
 import com.example.pasandroidsemester2.responses.profile.ResponseGetProfile;
+import com.example.pasandroidsemester2.responses.recommendation.ResponseGetRecommendation;
 import com.example.pasandroidsemester2.responses.search.ResponseGetSearch;
 
 import retrofit2.Call;
@@ -54,4 +56,11 @@ public interface ApiService {
     })
     @POST("/")
     Call<ResponseGetGlobalActivity> getGlobalActivities(@Header("Authorization") String authToken, @Body GlobalActivityQuery query);
+
+    @Headers({
+            "Content-Type: application/json",
+            "Accept: application/json"
+    })
+    @POST("/")
+    Call<ResponseGetRecommendation> getRecommendation(@Header("Authorization") String authToken, @Body RecommendationQuery query);
 }
