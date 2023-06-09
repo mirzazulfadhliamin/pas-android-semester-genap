@@ -3,6 +3,8 @@ package com.example.pasandroidsemester2.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +21,9 @@ import com.example.pasandroidsemester2.databinding.FragmentHomeActivitiesBinding
 import com.example.pasandroidsemester2.queries.GlobalActivityQuery;
 import com.example.pasandroidsemester2.responses.global_activity.GlobalActivitiesItem;
 import com.example.pasandroidsemester2.responses.global_activity.ResponseGetGlobalActivity;
+import com.example.pasandroidsemester2.responses.library.LibraryMediaListItem;
+import com.example.pasandroidsemester2.rv_adapters.ActivitiesAdapter;
+import com.example.pasandroidsemester2.rv_adapters.ListAdapter;
 
 import java.util.ArrayList;
 
@@ -30,6 +35,7 @@ public class HomeActivitiesFragment extends Fragment {
     FragmentHomeActivitiesBinding binding;
     ArrayList<GlobalActivitiesItem> rvData = new ArrayList<>();
     Preferences pref;
+    ActivitiesAdapter activitiesAdapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -37,6 +43,9 @@ public class HomeActivitiesFragment extends Fragment {
         View view = binding.getRoot();
 
         pref = new Preferences(getContext());
+        activitiesAdapter = new ActivitiesAdapter(rvData);
+        binding.rvActivities.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+        binding.rvActivities.setAdapter(activitiesAdapter);
         setContent();
 
         return view;
@@ -62,12 +71,16 @@ public class HomeActivitiesFragment extends Fragment {
                     if (null != getContext()) {
                         Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
                     }
-                    Log.e("PROFILE-ERROR", error);
+                    Log.e("ACTIVITIES-ERROR", error);
                     return;
                 }
 
-                String status = response.body().getData().getPage().getActivities().get(0).getStatus();
-                Toast.makeText(getContext(), status, Toast.LENGTH_SHORT).show();
+                ArrayList<GlobalActivitiesItem> datalist = response.body().getData().getPage().getActivities();
+                rvData.clear();
+                rvData.addAll(datalist);
+                Log.d("ACTIVITIES-DEBUG", Integer.toString(rvData.size()));
+                Toast.makeText(getContext(), Integer.toString(rvData.size()), Toast.LENGTH_SHORT).show();
+                activitiesAdapter.notifyDataSetChanged();
             }
 
             @Override

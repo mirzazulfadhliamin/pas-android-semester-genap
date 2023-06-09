@@ -1,14 +1,14 @@
 package com.example.pasandroidsemester2.responses.global_activity;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.google.gson.annotations.SerializedName;
 
 public class Page{
 
 	@SerializedName("activities")
-	private List<GlobalActivitiesItem> activities;
+	private ArrayList<GlobalActivitiesItem> activities;
 
-	public List<GlobalActivitiesItem> getActivities(){
+	public ArrayList<GlobalActivitiesItem> getActivities(){
 		return activities;
 	}
 }

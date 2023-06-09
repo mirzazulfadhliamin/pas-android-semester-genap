@@ -49,7 +49,8 @@ public interface ApiService {
 
     @Headers({
             "Content-Type: application/json",
-            "Accept: application/json"
+            "Accept: application/json",
+            "Cache-Control: no-cache"
     })
     @POST("/")
     Call<ResponseGetGlobalActivity> getGlobalActivities(@Header("Authorization") String authToken, @Body GlobalActivityQuery query);

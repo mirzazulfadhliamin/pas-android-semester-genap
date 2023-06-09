@@ -4,9 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class GlobalActivityQuery {
     @SerializedName("query")
-    String query = "query {\n" +
+    public String query = "query {\n" +
             "  Page {\n" +
-            "    activities {\n" +
+            "    activities(type: ANIME_LIST, isFollowing: false) {\n" +
             "      __typename\n" +
             "      ... on ListActivity {\n" +
             "        type\n" +
@@ -19,6 +19,7 @@ public class GlobalActivityQuery {
             "          }\n" +
             "        }\n" +
             "        media {\n" +
+            "          episodes\n" +
             "          coverImage {\n" +
             "            large\n" +
             "          }\n" +

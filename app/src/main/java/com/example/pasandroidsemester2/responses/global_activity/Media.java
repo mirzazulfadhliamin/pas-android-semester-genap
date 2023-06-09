@@ -10,11 +10,18 @@ public class Media{
 	@SerializedName("title")
 	private Title title;
 
+	@SerializedName("episodes")
+	private int episodes;
+
 	public CoverImage getCoverImage(){
 		return coverImage;
 	}
 
 	public Title getTitle(){
 		return title;
+	}
+
+	public int getEpisodes() {
+		return episodes;
 	}
 }
