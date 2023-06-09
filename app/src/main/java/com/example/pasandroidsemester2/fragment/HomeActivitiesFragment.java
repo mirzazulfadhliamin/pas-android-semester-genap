@@ -46,7 +46,12 @@ public class HomeActivitiesFragment extends Fragment {
         activitiesAdapter = new ActivitiesAdapter(rvData);
         binding.rvActivities.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
         binding.rvActivities.setAdapter(activitiesAdapter);
+        binding.refresh.setRefreshing(true);
         setContent();
+
+        binding.refresh.setOnRefreshListener(() -> {
+            setContent();
+        });
 
         return view;
     }
@@ -79,8 +84,8 @@ public class HomeActivitiesFragment extends Fragment {
                 rvData.clear();
                 rvData.addAll(datalist);
                 Log.d("ACTIVITIES-DEBUG", Integer.toString(rvData.size()));
-                Toast.makeText(getContext(), Integer.toString(rvData.size()), Toast.LENGTH_SHORT).show();
                 activitiesAdapter.notifyDataSetChanged();
+                binding.refresh.setRefreshing(false);
             }
 
             @Override

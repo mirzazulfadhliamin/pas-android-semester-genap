@@ -14,7 +14,6 @@ import android.widget.Toast;
 import com.example.pasandroidsemester2.ApiClient;
 import com.example.pasandroidsemester2.ApiService;
 import com.example.pasandroidsemester2.Preferences;
-import com.example.pasandroidsemester2.R;
 import com.example.pasandroidsemester2.databinding.FragmentMainLibraryBinding;
 import com.example.pasandroidsemester2.queries.ListQuery;
 import com.example.pasandroidsemester2.responses.library.LibraryMediaListItem;
@@ -49,7 +48,10 @@ public class MainLibraryFragment extends Fragment {
         binding.rvLibrary.setAdapter(listAdapter);
 
         pref = new Preferences(getContext());
+        binding.refresh.setRefreshing(true);
         setContent();
+
+        binding.refresh.setOnRefreshListener(() -> setContent());
 
         return view;
     }
@@ -72,6 +74,7 @@ public class MainLibraryFragment extends Fragment {
                 rvData.clear();
                 rvData.addAll(datalist);
                 listAdapter.notifyDataSetChanged();
+                binding.refresh.setRefreshing(false);
             }
 
             @Override

@@ -43,7 +43,12 @@ public class HomeAnimeFragment extends Fragment {
         recommendationAdapter = new RecommendationAdapter(rvData);
         binding.rvRecommendation.setLayoutManager(new GridLayoutManager(getContext(), 2));
         binding.rvRecommendation.setAdapter(recommendationAdapter);
+        binding.refresh.setRefreshing(true);
         setContent();
+
+        binding.refresh.setOnRefreshListener(() -> {
+            setContent();
+        });
 
         return view;
     }
@@ -76,6 +81,7 @@ public class HomeAnimeFragment extends Fragment {
                 rvData.clear();
                 rvData.addAll(datalist);
                 recommendationAdapter.notifyDataSetChanged();
+                binding.refresh.setRefreshing(false);
             }
 
             @Override
