@@ -106,16 +106,16 @@
 
 
     <string-array name="onboarding_title">
-        <item>Welcome To Stazam</item>
-        <item>Set Alarms</item>
-        <item>Create Reminder</item>
-        <item>Taking Notes</item>
+        <item>Welcome to the Best Anime Streaming App!</item>
+        <item>Explore Extensive Anime Collection</item>
+        <item>Create Your Anime Playlist</item>
+        <item>Personalized Anime Recommendations</item>
     </string-array>
 
     <string-array name="onboarding_description">
-        <item>Easily Organise your day to day activities for Maximum productivity</item>
-        <item>Set up Alarms daily for Keeping regular schedules</item>
-        <item>Set up reminders, that will keep your most important priorities top of mind</item>
-        <item>Taking Notes and making important to-do lists on the go</item>
+        <item> Thank you for choosing our app for your anime streaming needs. Get ready for the ultimate anime watching experience with our comprehensive and popular collection.</item>
+        <item>Access a wide range of anime from various genres. Discover your favorites, explore new genres, and enjoy high-quality videos.</item>
+        <item> Organize your favorite anime with a personal playlist. Customize your order and save anime for later viewing.</item>
+        <item> Discover anime tailored to your preferences. Enjoy recommendations based on genres, ratings, and your personal taste.</item>
     </string-array>
 </resources>

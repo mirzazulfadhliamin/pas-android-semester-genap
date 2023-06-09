@@ -51,10 +51,10 @@ public class OnboardingActivity extends AppCompatActivity {
     private ArrayList<PaperOnboardingPage> getDataforOnboarding() {
         String[] onboardingTitle = getResources().getStringArray(R.array.onboarding_title);
         String[] onboardingDescription = getResources().getStringArray(R.array.onboarding_description);
-        PaperOnboardingPage source1 = new PaperOnboardingPage(onboardingTitle[0], onboardingDescription[0], Color.parseColor("#ffffff"),R.drawable.home, R.drawable.home);
-        PaperOnboardingPage source2 = new PaperOnboardingPage(onboardingTitle[1], onboardingDescription[1], Color.parseColor("#ffffff"),R.drawable.home, R.drawable.home);
-        PaperOnboardingPage source3 = new PaperOnboardingPage(onboardingTitle[2], onboardingDescription[2], Color.parseColor("#ffffff"),R.drawable.home, R.drawable.home);
-        PaperOnboardingPage source4 = new PaperOnboardingPage(onboardingTitle[3], onboardingDescription[3], Color.parseColor("#ffffff"),R.drawable.home, R.drawable.home);
+        PaperOnboardingPage source1 = new PaperOnboardingPage(onboardingTitle[0], onboardingDescription[0], Color.parseColor("#67B8E5"),R.drawable.onboarading1, R.drawable.onboarading1);
+        PaperOnboardingPage source2 = new PaperOnboardingPage(onboardingTitle[1], onboardingDescription[1], Color.parseColor("#F15C9B"),R.drawable.onboardingbg1, R.drawable.eart);
+        PaperOnboardingPage source3 = new PaperOnboardingPage(onboardingTitle[2], onboardingDescription[2], Color.parseColor("#8EDB8A"),R.drawable.onboarding4, R.drawable.mdi_book);
+        PaperOnboardingPage source4 = new PaperOnboardingPage(onboardingTitle[3], onboardingDescription[3], Color.parseColor("#B088F9"),R.drawable.onboarding5, R.drawable.baseline_stars_24);
         ArrayList<PaperOnboardingPage> elements = new ArrayList<>();
 
         elements.add(source1);
@@ -63,9 +63,6 @@ public class OnboardingActivity extends AppCompatActivity {
         elements.add(source4);
 
         return elements;
-
-
-
 
     }
 }
