@@ -13,6 +13,7 @@ public class Preferences {
     private final String isLoggedIn = "is_logged_in";
     private final String authToken = "auth_token";
     private final String firstRun = "first_run";
+    private final String userId = "user_id";
 
     public Preferences(Context context) {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
@@ -45,6 +46,15 @@ public class Preferences {
 
     public void setFalseFirstRun() {
         editor.putBoolean(firstRun, false);
+        editor.commit();
+    }
+
+    public int getUserId() {
+        return pref.getInt(userId, -1);
+    }
+
+    public void setUserId(int id) {
+        editor.putInt(userId, id);
         editor.commit();
     }
 }

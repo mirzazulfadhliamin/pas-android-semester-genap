@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.pasandroidsemester2.MainActivity;
 import com.example.pasandroidsemester2.Preferences;
@@ -56,6 +57,8 @@ public class LoginConfirmationFragment extends Fragment {
         binding.btnLogin.setOnClickListener(v -> {
             pref.setAuthToken(authToken);
             pref.setIsLoggedIn(true);
+            Toast.makeText(getContext(), Integer.toString(id), Toast.LENGTH_SHORT).show();
+            pref.setUserId(id);
             Intent intent = new Intent(getContext(), MainActivity.class);
             startActivity(intent);
             getActivity().finish();
