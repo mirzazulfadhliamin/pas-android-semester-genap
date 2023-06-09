@@ -36,6 +36,11 @@ public class MainLibraryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        /*
+        *
+        * TODO: Jangan lupa implement safeguard buat null!!!
+        *
+        */
         binding = FragmentMainLibraryBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 

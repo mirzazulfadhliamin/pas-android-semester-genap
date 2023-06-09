@@ -1,10 +1,12 @@
 package com.example.pasandroidsemester2;
 
 import com.example.pasandroidsemester2.queries.DetailQuery;
+import com.example.pasandroidsemester2.queries.GlobalActivityQuery;
 import com.example.pasandroidsemester2.queries.ListQuery;
 import com.example.pasandroidsemester2.queries.ProfileQuery;
 import com.example.pasandroidsemester2.queries.SearchQuery;
 import com.example.pasandroidsemester2.responses.detail.ResponseGetDetail;
+import com.example.pasandroidsemester2.responses.global_activity.ResponseGetGlobalActivity;
 import com.example.pasandroidsemester2.responses.library.ResponseGetList;
 import com.example.pasandroidsemester2.responses.profile.ResponseGetProfile;
 import com.example.pasandroidsemester2.responses.search.ResponseGetSearch;
@@ -44,4 +46,11 @@ public interface ApiService {
     })
     @POST("/")
     Call<ResponseGetList> getList(@Header("Authorization") String authToken, @Body ListQuery query);
+
+    @Headers({
+            "Content-Type: application/json",
+            "Accept: application/json"
+    })
+    @POST("/")
+    Call<ResponseGetGlobalActivity> getGlobalActivities(@Header("Authorization") String authToken, @Body GlobalActivityQuery query);
 }
