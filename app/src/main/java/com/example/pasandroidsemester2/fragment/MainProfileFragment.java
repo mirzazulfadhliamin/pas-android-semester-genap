@@ -63,6 +63,7 @@ public class MainProfileFragment extends Fragment {
         binding.btnLogout.setOnClickListener(view1 -> {
             pref.setIsLoggedIn(false);
             pref.setAuthToken("");
+            pref.setUserId(-1);
             startActivity(new Intent(requireContext(), LoginActivity.class));
             Toast.makeText(getActivity(), "Logged out from AniList account", Toast.LENGTH_SHORT).show();
             getActivity().finish();

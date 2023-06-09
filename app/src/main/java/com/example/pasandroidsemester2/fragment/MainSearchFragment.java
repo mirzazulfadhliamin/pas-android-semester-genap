@@ -93,7 +93,7 @@ public class MainSearchFragment extends Fragment {
 
             @Override
             public void onFailure(Call<ResponseGetSearch> call, Throwable t) {
-
+                Toast.makeText(getContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
             }
         });
     }
