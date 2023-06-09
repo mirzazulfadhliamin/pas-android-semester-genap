@@ -23,12 +23,24 @@
         app:layout_constraintTop_toTopOf="parent"
         android:textColor="@color/white">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            />
         <EditText
+            android:paddingStart="20dp"
+            android:paddingEnd="10dp"
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:id="@+id/searchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Search Anime | Movie"
+            android:textColorHint="#9FFFFFFF"
+            android:backgroundTint="@android:color/transparent"
             android:iconifiedByDefault="false"
             android:queryHint="@string/queryHintsearch"
 
